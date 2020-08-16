@@ -1,0 +1,187 @@
+{
+
+		"Query Selector": {
+		"prefix": "select",
+		"body": [
+			"document.querySelector('$1');"
+		],
+		"description": "Query Selector"
+		},
+
+		"Query Selector All": {
+			"prefix": "selectall",
+			"body": [
+				"document.querySelectorAll('$1');"
+			],
+			"description": "Query Selector All"
+		},
+
+		"Add Event Listener": {
+			"prefix": "listen",
+			"body": [
+				"$1.addEventListener('$2', ($3)=> {",
+				"  $4",
+				"});"
+			],
+			"description": "Add Event Listener"
+		},
+
+			"Adds event listener and defined function": {
+				"prefix": "listenfunc",
+				"body": [
+					"$1.addEventListener('$2', $3($4));"
+				],
+				"description": "Adds event listener and defined function"
+			},
+			
+			"Uses the Old Javascript Class": {
+				"prefix": "construct",
+				"body": [
+					"//Old ES5 Class"
+					"const $1 = function($2){",
+					" /* constructor variables */",
+					" this.$2 = $2;",
+					"}",
+					"",
+					"$1.prototype = {",
+					" /* Methods */",
+					" $3: function(){",
+					"   $4",
+					" }",
+					"}"
+				],
+				"description": "Uses the Old Javascript Class"
+			},
+
+			"Console Table": {
+				"prefix": "console table",
+				"body": [
+					"console.table($1);"
+				],
+				"description": "Console Table"
+			},
+
+			"Automatically Runs Function": {
+				"prefix": "iife",
+				"body": [
+					"const $1 = (function($2){",
+					"  $3",
+					"})(); /* Pass the arguments here */"
+				],
+				"description": "Automatically Runs Function"
+			},
+
+			"IIFE with return method": {
+				"prefix": "iiferet",
+				"body": [
+					"const $1 = (function($2){",
+					" /* Private Methods */",
+					"  $3",
+					"",
+					"",
+					"  /* Public Methods */",
+					"  return{",
+					"   init:function(){",
+					"    $4",
+					"   }",
+					"  }",
+					"  ",
+					"})(); "
+				],
+				"description": "IIFE with return method"
+			},
+			"Creating an Element": {
+				"prefix": "createElem",
+				"body": [
+					"//Create li element",
+					"   const $1 = document.createElement('$1');",
+					"   //Add class",
+					"   $1.className = '${2:class}';",
+					"   // Add ID",
+					"   $1.id = `${3:id}`;",
+					"   //Add HTML",
+					"   $1.innerHTML = `",
+					"     $6",
+					"   `;",
+					"",
+					"   //Insert item",
+					"   //You can edit this",
+					"  ${4: 'Target Element'}.insertAdjacentElement('${5:beforeend}', $1);",
+					"   ",
+					"",
+					"",
+					"  "
+				],
+				"description": "Creating an Element"
+			},
+			"Insert Adjancent Element": {
+				"prefix": "insertAdjacent",
+				"body": [
+					"${2:'ParentElement'}.insertAdjacentElement('${3:beforeend}', ${1:'ChildElement'});"
+				],
+				"description": "Insert Adjancent Element"
+			},
+
+			"Local Storage Boilerplate": {
+				"prefix": "localstorage",
+				"body": [
+					"//Putting items to local storage",
+					"let items = [];",
+					"//Check if any items in ls",
+					"if (localStorage.getItem('items') === null) {",
+					" items = [];",
+					"",
+					" //Push new item",
+					" items.push(item);",
+					" //Set local storage",
+					" localStorage.setItem('items', JSON.stringify(items));",
+					"} else {",
+					" //Get what is already in local storage",
+					" items = JSON.parse(localStorage.getItem('items'));",
+					"",
+					" //Push new item",
+					" items.push(item);",
+					"",
+					" //Reset local storage",
+					" localStorage.setItem('items', JSON.stringify(items));",
+					"}"
+				],
+				"description": "Local Storage Boilerplate"
+			},
+
+			"Function in Property form": {
+				"prefix": "funcprop",
+				"body": [
+					"${1:add}:function($2){",
+					" $3",
+					"}"
+				],
+				"description": "Function in Property form"
+			},
+			"Function in constant variable": {
+				"prefix": "funcconst",
+				"body": [
+					"const ${1:load} = function($2){",
+					" $3",
+					"}"
+				],
+				"description": "Function in constant variable"
+			},
+			"Javascript Class": {
+				"prefix": "class",
+				"body": [
+					"class ${1:ClassName}{",
+					" construct($2){",
+					"  this.$2 = $2;",
+					" }",
+					"",
+					" //Methods",
+					" ${3:methodName}(){",
+					"  $4",
+					" }",
+					"}"
+				],
+				"description": "Javascript Class"
+			}
+	}
+

@@ -1,0 +1,201 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	//php 
+
+	
+		"phpnewline": {
+			"prefix": "phpn",
+			"body": [
+				"<?php",
+				"	$0",
+				"?>"
+			],
+			"description": "php tag"
+		},
+
+		"php": {
+			"prefix": "php",
+			"body": [
+				"<?php $1 ?>"
+			],
+			"description": "php tag"
+		},
+
+		"phpecho": {
+			"prefix": "php",
+			"body": [
+				"<?php echo $1 ;?>"
+			],
+			"description": "php tag"
+		},
+
+		"phpforeach": {
+			"prefix": "phpforeach",
+			"body": [
+				"<?php foreach($1): ?>",
+				"  $2",
+				"<?php endforeach; ?>"
+			],
+			"description": "phpforeach"
+		},
+
+		"publicfunction": {
+			"prefix": "pubfunc",
+			"body": [
+				"public function $1($2)",
+				"{",
+				"   $3;",
+				"}"
+			],
+			"description": "publicfunction"
+		},
+
+		"phpif": {
+			"prefix": "phpif",
+			"body": [
+				"<?php if($1): ?>",
+    "  $2	",
+				"<?php endif; ?>"
+			],
+			"description": "phpif"
+		},
+
+		"phpifelse": {
+			"prefix": "phpifelse",
+			"body": [
+				"<?php if($1): ?>",
+				"  $2",
+				"<?php else: $3?>",
+    "  $4	",
+				"<?php endif; ?>"
+			],
+			"description": "phpifelse"
+		},
+
+		"phpPDO": {
+			"prefix": "newpdo",
+			"body": [
+				"new PDO('mysql:host=127.0.0.1;dbname=$1', 'root', '')"
+			],
+			"description": "phpPDO"
+		},
+
+		"anchortag": {
+			"prefix": "ahref",
+			"body": [
+				"<a href=\"$1\" target=\"_blank\" class=\"$2\">" 
+			],
+			"description": "anchortag"
+		},
+
+		"headertag": {
+			"prefix": "header",
+			"body": [
+				"<header>",
+				"	$1",
+				"</header>"
+			],
+			"description": "headertag"
+		},
+
+		"sectiontag": {
+			"prefix": "section",
+			"body": [
+				"<section>",
+				"	$1",
+				"</section>"
+			],
+			"description": "sectiontag"
+		},
+
+		"footertag": {
+			"prefix": "footer",
+			"body": [
+				"<footer>",
+				"	$1",
+				"</footer>"
+			],
+			"description": "footertag"
+		},
+
+		"navtag": {
+			"prefix": "nav",
+			"body": [
+				"<nav>",
+				"	$1",
+				"</nav>"
+			],
+			"description": "navtag"
+		},
+
+		"Image": {
+			"prefix": "cimg",
+			"body": [
+				"<img src=\"#\" alt=\"$1\" title=\"$1\" class=\"$2\">"
+			],
+			"description": "Image"
+		},
+
+		"Complete Link": {
+			"prefix": "clink",
+			"body": [
+				"<a href=\"#\" target=\"_blank\" class=\"$1\">$2</a>"
+			],
+			"description": "Complete Link"
+		},
+
+		"Complete Image": {
+			"prefix": "cimg",
+			"body": [
+				"<img src=\"$1\" alt=\"$2\" class=\"$3\">"
+			],
+			"description": "Complete Image"
+		},
+		
+		"Image with Link": {
+			"prefix": "cimglink",
+			"body": [
+				" <a href=\"#\" target=\"_blank\" class=\"$1\">",
+				"   <img src=\"#\" alt=\"$2\" class=\"$3\">",
+				" </a>",
+				"$4"
+			],
+			"description": "Image with Link"
+		},
+
+		"comment 1": {
+			"prefix": "comment1",
+			"body": [
+				"// ====================================//",
+				"// $1",
+				"// ====================================//"
+			],
+			"description": "CSS Comment"
+		},
+
+		"Vardump and Die": {
+			"prefix": "vardie",
+			"body": [
+				"<?php var_dump($1); ?>",
+				"<?php die(); ?>"
+			],
+			"description": "Vardump and Die"
+		}
+
+}

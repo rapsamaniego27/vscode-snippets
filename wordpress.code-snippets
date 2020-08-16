@@ -1,0 +1,104 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	"wpif": {
+		"prefix": "wpif",
+		"body": [
+			"<?php if (have_posts()) : while (have_posts()) : the_post(); ?>",
+			"  $2	",
+			"<?php endwhile; endif; ?>"
+		],
+		"description": "phpif"
+	},
+	"wpifelse": {
+		"prefix": "wpifelse",
+		"body": [
+			"<?php if($1): ?>",
+			"  $2",
+			"<?php else: $3?>",
+	"  $4	",
+			"<?php endif; ?>"
+		],
+		"description": "phpifelse"
+	},
+	"wp_enqueue_style": {
+		"prefix": "wpcss",
+		"body": [
+			"wp_enqueue_style('style', get_template_directory_uri() . '/custom.css', array(), false, 'all');"
+		],
+		"description": "wp_enqueue_style"
+	},
+	"wp_enqueue_script": {
+		"prefix": "wpjs",
+		"body": [
+			"wp_enqueue_style('style', get_template_directory_uri() . '/main.js', array(), false, 'all');"
+		],
+		"description": "wp_enqueue_script"
+	},
+	"wp_enqueue_assets": {
+		"prefix": "wpassets",
+		"body": [
+			"function cf_setup(){",
+			"",
+			"  wp_enqueue_style('google-fonts', 'https://fonts.googleapis.com/css?family=Roboto|Roboto+Condensed&display=swap');",
+			"  wp_enqueue_style('custom', get_template_directory_uri() . '/dist/css/custom.css', array(), false, 'all');",
+			"  wp_enqueue_script('main', get_template_directory_uri() . '/main.js', array(), false, 'all');",
+			"  wp_enqueue_script('fontawesome','https://kit.fontawesome.com/e33b567028.js');",
+			"",
+			"}",
+			"add_action('wp_enqueue_scripts', 'cf_setup');"
+		],
+		"description": "wp_enqueue_assets"
+	},
+	"Wp Post": {
+		"prefix": "wpposts",
+		"body": [
+			"<?php ",
+			"    $${1:post_type}_post = ['post_type' => '${2:post_type}'];",
+			"    $${3:posts}= new WP_Query($${1:post_type}_post);",
+			"?>",
+			"  ",
+			"<?php if ($${3:posts}->have_posts()) : while ($${3:posts}->have_posts()) : $${3:posts}->the_post();?>",
+			"   $4",
+			"<?php endwhile; wp_reset_postdata(); endif; ?>"
+		],
+		"description": "Wp Post"
+	},
+	"ACF Repeater Front End": {
+		"prefix": "acfrepeat2",
+		"body": [
+			"<!-- // check if the repeater field has rows of data -->",
+			"    <?php if( have_rows('$1') ): ?>",
+			"    ",
+			"       <!-- // loop through the rows of data -->",
+			"       <?php while ( have_rows('$1') ) : the_row(); ?>",
+			"    ",
+			"            <!-- // display a sub field value -->",
+			"            <?php echo get_sub_field('$2'); ?>",
+			"    ",
+			"       <?php endwhile; ?>",
+			"    ",
+			"    <?php else : ?>",
+			"    ",
+			"        <!-- // no rows found -->",
+			"    ",
+			"    <?php endif; ?>"
+		],
+		"description": "ACF Repeater Front End"
+	}
+}
