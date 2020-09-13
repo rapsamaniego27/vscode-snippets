@@ -171,7 +171,7 @@
 				"prefix": "class",
 				"body": [
 					"class ${1:ClassName}{",
-					" construct($2){",
+					" constructor($2){",
 					"  this.$2 = $2;",
 					" }",
 					"",
@@ -189,6 +189,112 @@
 					"${1:e}.preventDefault();"
 				],
 				"description": "Prevent Default for Links"
+			},
+			"Fetch Boilerplate": {
+				"prefix": "fetch",
+				"body": [
+					"fetch('$1')",
+					" .then(response => response.json())",
+					" .then(json => console.log(json))",
+					" .catch(err => console.log(err));"
+				],
+				"description": "Fetch Boilerplate"
+			},
+
+			"Alternate version of fetching": {
+				"prefix": "fetch2",
+				"body": [
+					"fetch($1)",
+					"   .then(response => {",
+					"     return response.json();",
+					"   })",
+					"   .then(json => {",
+					"     console.log(json);",
+					"   })",
+					"   .catch(err => {",
+					"     console.log(err);",
+					"   });"
+				],
+				"description": "Alternate version of fetching"
+			},
+
+			"Promisified Functions": {
+				"prefix": "funcpromise",
+				"body": [
+					"function $1($2){",
+					"     return new Promise((resolve, reject)) => {",
+					"",
+					"      if(!$2){",
+					"        reject(new Error('return this when theres an error'));",
+					"      }else{",
+					"        setTimeout(resolve, $2);",
+					"      }",
+					"      ",
+					"     }",
+					"   }"
+				],
+				"description": "Promisified Functions"
+			},
+			"Asynced Function": {
+				"prefix": "funcasync",
+				"body": [
+					"async function $1($2){",
+					"   let api = '$3';",
+					"   let response = await fetch(api);",
+					"   let json = await response.json();",
+					"",
+					"   return{",
+					"     result:json",
+					"   }",
+					" }"
+				],
+				"description": "Asynced Function"
+			},
+
+			"Asynced Method": {
+				"prefix": "metasync",
+				"body": [
+					"async $1($2){",
+					"   let api = '$3';",
+					"   let response = await fetch(api);",
+					"   let json = await response.json();",
+					"",
+					"   return{",
+					"     result:json",
+					"   }",
+					" }"
+				],
+				"description": "Asynced Method"
+			},
+
+			"Fetches a Promisified function": {
+				"prefix": "fetchfunc",
+				"body": [
+					"$1()",
+					"    .then(data => {",
+					"      console.log(data.result);",
+					"    })",
+					"    .catch(err => console.log(err));"
+				],
+				"description": "Fetches a Promisified function"
+			},
+
+			"A random number from 0 up to any number you like": {
+				"prefix": "randomnum",
+				"body": [
+					"const randomNum = Math.floor(Math.random() * Math.floor($1))"
+				],
+				"description": "A random number from 0 up to any number you like"
+			},
+
+			"A random number from 0 up to an array length": {
+				"prefix": "randomarr",
+				"body": [
+					"const length = ${1:array}.length;",
+					"const randomNum = Math.floor(length * Math.random()); "
+				],
+				"description": "A random number from 0 up to an array length"
 			}
+			
 	}
 

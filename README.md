@@ -155,4 +155,106 @@ e.preventDefault();
 ```
 
 
+### **fetch**
+Creates a fetch boilerplate with then and catch statements. 
+
+```Javascript
+fetch('url')
+ .then(response => response.json())
+ .then(json => console.log(json))
+ .catch(err => console.log(err));
+```
+
+### **fetch2**
+Creates a 2nd fetch boilerplate with then and catch statements. 
+
+```Javascript
+fetch(url)
+   .then(response => {
+     return response.json();
+   })
+   .then(json => {
+     console.log(json);
+   })
+   .catch(err => {
+     console.log(err);
+   });
+```
+
+### **funcpromise**
+Converts a function to a promise.
+
+```Javascript
+function name(argument){
+  return new Promise((resolve, reject)) => {
+
+  if(!argument){
+    reject(new Error('return this when theres an error'));
+  }else{
+    setTimeout(resolve, argument);
+  }
+  
+  }
+}
+```
+
+### **funcasync**
+Converts a function to a promise but in async form.
+
+```Javascript
+async function name(argument){
+   let api = 'url';
+   let response = await fetch(api);
+   let json = await response.json();
+
+   return{
+     result:json
+   }
+ }
+```
+
+### **metasync**
+Converts a method to a promise but in async form.
+This needs to be used inside a Class
+
+```Javascript
+async name(argument){
+   let api = 'url';
+   let response = await fetch(api);
+   let json = await response.json();
+
+   return{
+     result:json
+   }
+ }
+```
+
+### **fetchfunc**
+Creates a fetch boilerplate to attach to a promisified function
+
+```Javascript
+funcName()
+  .then(data => {
+    console.log(data.result);
+  })
+  .catch(err => console.log(err));
+```
+
+### **randomnum**
+A random number from 0 up to any number you like.
+
+9 for example.
+
+```Javascript
+const randomNum = Math.floor(Math.random() * Math.floor(9));
+```
+
+### **randomarr**
+Creates a random num based on the length of the array.
+
+```Javascript
+const length = array.length;
+const randomNum = Math.floor(length * Math.random()); 
+```
+
 
