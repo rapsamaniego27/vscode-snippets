@@ -241,11 +241,9 @@
 					"async function $1($2){",
 					"   let api = '$3';",
 					"   let response = await fetch(api);",
-					"   let json = await response.json();",
+					"   let data = await response.json();",
 					"",
-					"   return{",
-					"     result:json",
-					"   }",
+					"   return data;",
 					" }"
 				],
 				"description": "Asynced Function"
